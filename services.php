@@ -32,8 +32,18 @@ class Services
 
 		$result = mysqli_query($con, "SELECT value FROM highscore");
 		
-		if(mysqli_num_rows($result) > 0) $row = mysqli_fetch_assoc($result); 
-		else $row = "";		
+		if(mysqli_num_rows($result) > 0) 
+		{
+			$row = mysqli_fetch_assoc($result);
+		}
+		else 
+		{
+			$row = "";		
+		}
+		
+		// Created by Ronald Albert 2016
+		/*$row = mysqli_num_rows($result) > 0? mysqli_fetch_assoc($result) : 
+		"";*/
 		
 		mysqli_close($con);
 		

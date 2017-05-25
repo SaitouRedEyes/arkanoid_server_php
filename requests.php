@@ -1,15 +1,22 @@
 <?php	
 include "services.php";
 				
-	if($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET["sID"]) && $_GET["sID"] != "")
+	if($_SERVER['REQUEST_METHOD'] === 'GET' && 
+	   isset($_GET["sID"]) && 
+	   $_GET["sID"] != "")
 	{ 
 		echo RedirectToServices($_GET);		
 	}
-	else if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["sID"]) && $_POST["sID"] != "")
+	else if($_SERVER['REQUEST_METHOD'] === 'POST' && 
+	        isset($_POST["sID"]) && 
+			$_POST["sID"] != "")
 	{		
 		echo RedirectToServices($_POST); 
 	}	
-	else echo "<h1>Método/Serviço requerido desconhecido!!</h1>";		
+	else 
+	{
+		echo "<h1>Método/Serviço requerido desconhecido!!</h1>";		
+	}
 	
 	
 	function RedirectToServices($methodRequest)
@@ -22,13 +29,34 @@ include "services.php";
 		
 		switch ($methodRequest["sID"])
 		{
-			case $GetHighScore: return $services->GetHighscore(); break;
+			case $GetHighScore: 
+			
+				return $services->GetHighscore(); 
+				break;
 				
 			case $SetHighscore:
-				if(isset($methodRequest["value"]) && $methodRequest["value"] != "") return $services->SetHighscore($methodRequest["value"]);
-				else return $errorMessage; break;
+			
+				if(isset($methodRequest["value"]) && 
+					$methodRequest["value"] != "") 
+				{
+					return $services->SetHighscore($methodRequest["value"]);
+				}
+				else
+				{
+					return $errorMessage; 
+				}
+				
+				break;
 				
 			default: return $errorMessage;
 		}
 	}
 ?>
+
+
+
+
+
+
+
+
