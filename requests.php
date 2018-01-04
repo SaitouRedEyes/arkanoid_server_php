@@ -1,21 +1,21 @@
-<?php	
-include "services.php";
-				
+ï»¿<?php	
+include('services.php');
+	
 	if($_SERVER['REQUEST_METHOD'] === 'GET' && 
 	   isset($_GET["sID"]) && 
 	   $_GET["sID"] != "")
 	{ 
-		echo RedirectToServices($_GET);		
+		echo trim(RedirectToServices($_GET));		
 	}
 	else if($_SERVER['REQUEST_METHOD'] === 'POST' && 
 	        isset($_POST["sID"]) && 
 			$_POST["sID"] != "")
 	{		
-		echo RedirectToServices($_POST); 
+		echo trim(RedirectToServices($_POST)); 
 	}	
 	else 
 	{
-		echo "<h1>Método/Serviço requerido desconhecido!!</h1>";		
+		echo trim("<h1>MÃ©todo/ServiÃ§o requerido desconhecido!!</h1>");		
 	}
 	
 	
@@ -52,6 +52,7 @@ include "services.php";
 		}
 	}
 ?>
+
 
 
 

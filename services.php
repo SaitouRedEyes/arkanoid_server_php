@@ -1,5 +1,4 @@
-<?PHP
-
+<?php
 class Services
 {
 	const HOST = "localhost";
@@ -8,9 +7,6 @@ class Services
 	const DB = "arkanoid";
 	
 	private static $instance;
-		
-	private function __construct() 
-	{}
 	
 	public static function GetInstance() 
 	{	
@@ -19,11 +15,6 @@ class Services
 		return self::$instance;	
 	}	
 	
-	/**
-	 * Get Highscore
-	 * @param string $login
-	 * @param string $pass
-	 */
 	public function GetHighscore()
 	{
 		$con = mysqli_connect(self::HOST, self::USER, self::PASS, self::DB);
@@ -40,10 +31,6 @@ class Services
 		{
 			$row = "";		
 		}
-		
-		// Created by Ronald Albert 2016
-		/*$row = mysqli_num_rows($result) > 0? mysqli_fetch_assoc($result) : 
-		"";*/
 		
 		mysqli_close($con);
 		
@@ -64,10 +51,3 @@ class Services
 	}
 }
 ?>
-
-
-
-
-
-
-
